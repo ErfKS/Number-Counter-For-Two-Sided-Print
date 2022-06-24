@@ -156,7 +156,9 @@ public class Program
 		
 		for (int i = FinalNum; i >= FirstNum-1; i--)
 		{
-			int NumberToAdd = GetOneEvenNumber(i);
+			if(!CheckEvenNumber(i))
+				continue;
+			int NumberToAdd = i;
 			if (NumberToAdd <= FinalNum)
 			{
 				if(NumberToAdd != 0)
@@ -170,7 +172,9 @@ public class Program
 	{
 		for (int i = FirstNum-1; i < FinalNum; i++)
 		{
-			int NumberToAdd = GetOneOddNumber(i);
+			if(!CheckOddNumber(i))
+				continue;
+			int NumberToAdd = i;
 			if (NumberToAdd < FinalNum)
 			{
 				if (NumberToAdd != 0)
@@ -189,14 +193,18 @@ public class Program
 		}
 	}
 
-	static int GetOneOddNumber(int k)
+	static bool CheckOddNumber(int k)
 	{
-		return (int)(2 * k + 1);
+		if(k % 2 == 1)
+			return true;
+		return false;
 	}
 	
-	static int GetOneEvenNumber(int k)
+	static bool CheckEvenNumber(int k)
 	{
-		return (int)(2 * k);
+		if(k % 2 == 0)
+			return true;
+		return false;
 	}
 
 	static void GetValue()
